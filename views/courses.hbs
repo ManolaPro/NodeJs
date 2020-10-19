@@ -15,11 +15,14 @@
 				</div>
 				<div class="card-action action">
 						<a href="/courses/{{id}}" target="_blank">Open course</a>
+						{{#if @root.isAuth}}
 						<a href="/courses/{{id}}/edit?allow=true">Edit course</a>
 						<form action="/card/add" method="POST" >
+							<input type="hidden" name="_csrf" value="{{@root.csrf}}">
 							<input type="hidden" name="id" value="{{id}}">	
 							<button type="submit" class="btn btn-primary">Buy</button>
 						</form>
+						{{/if}}
 				</div>
 			</div>
 		</div>
